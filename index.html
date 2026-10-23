@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+<title>یه چیز خاص برای تو 💌</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{direction:rtl}
+body{
+  font-family:'Vazirmatn',Tahoma,sans-serif;
+  min-height:100vh;overflow-x:hidden;color:#4a2c3a;
+  background:linear-gradient(160deg,#fff0f5,#ffe8f0,#f3e5ff,#ffe4ec,#fff5f0);
+  background-size:400% 400%;animation:bg 18s ease infinite;
+}
+@keyframes bg{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.particles{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.p{position:absolute;bottom:-20px;opacity:0;animation:rise linear infinite;user-select:none;filter:drop-shadow(0 0 4px rgba(255,107,157,.35))}
+@keyframes rise{0%{transform:translateY(0) rotate(0) scale(.5);opacity:0}10%{opacity:.6}90%{opacity:.35}100%{transform:translateY(-105vh) rotate(600deg) scale(1);opacity:0}}
+.orb{position:fixed;border-radius:50%;filter:blur(50px);opacity:.3;pointer-events:none;z-index:0;animation:of 12s ease-in-out infinite alternate}
+.o1{width:240px;height:240px;background:#ff9ec4;top:-60px;right:-40px}
+.o2{width:180px;height:180px;background:#c9a0ff;bottom:8%;left:-30px;animation-delay:-4s}
+.o3{width:140px;height:140px;background:#ffc3a0;top:40%;right:3%;animation-delay:-7s}
+@keyframes of{from{transform:translate(0,0)}to{transform:translate(20px,-18px)}}
+.wrap{position:relative;z-index:10;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:14px 10px}
+.card{
+  width:100%;max-width:390px;
+  background:linear-gradient(170deg,#fffafb,#fff5f8 50%,#fff0f5);
+  border-radius:24px;padding:20px 14px 26px;position:relative;
+  box-shadow:0 16px 40px rgba(232,67,147,.15);
+  overflow:hidden;
+}
+.card::before{
+  content:'';position:absolute;inset:-3px;border-radius:26px;z-index:-1;
+  background:linear-gradient(135deg,#ff6b9d,#a55eea,#ff8ab4,#ffc3a0,#ff6b9d);
+  background-size:300% 300%;animation:br 8s ease infinite;
+}
+@keyframes br{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.cn{position:absolute;font-size:18px;opacity:.5;animation:cp 2.5s ease-in-out infinite;pointer-events:none}
+.cn.tl{top:8px;right:10px}.cn.tr{top:8px;left:10px;animation-delay:.5s}
+.cn.bl{bottom:8px;right:10px;animation-delay:1s}.cn.br{bottom:8px;left:10px;animation-delay:1.5s}
+@keyframes cp{0%,100%{transform:scale(1);opacity:.4}50%{transform:scale(1.2);opacity:.75}}
+
+.st{display:none;width:100%;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.st.on{display:flex;animation:si .55s cubic-bezier(.22,1,.36,1) forwards}
+.st.out{animation:so .3s ease forwards}
+@keyframes si{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes so{from{opacity:1}to{opacity:0;transform:translateY(-12px)}}
+
+.eb{font-size:2.2rem;animation:bn 2s ease-in-out infinite;filter:drop-shadow(0 3px 6px rgba(255,107,157,.25))}
+@keyframes bn{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.tx{font-size:.96rem;line-height:1.85;font-weight:500;color:#5a3344;white-space:pre-line;width:100%;padding:0 2px;direction:rtl;text-align:center}
+.tb{font-size:1.15rem;font-weight:700;background:linear-gradient(120deg,#e84393,#a55eea);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.65;width:100%}
+.nt{font-size:.82rem;color:#9b6b7d;line-height:1.55;display:block;margin-top:3px}
+
+.btn{
+  background:linear-gradient(135deg,#ff6b9d,#e84393);color:#fff;border:none;
+  padding:12px 24px;border-radius:50px;font-family:inherit;font-size:.95rem;font-weight:600;
+  cursor:pointer;box-shadow:0 6px 18px rgba(232,67,147,.3);transition:.2s;margin-top:4px;
+}
+.btn:active{transform:scale(1.04)}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.by{background:linear-gradient(135deg,#2ed573,#1abc9c);box-shadow:0 6px 18px rgba(46,213,115,.28)}
+.bn{background:linear-gradient(135deg,#ff6b81,#ff4757);position:relative;z-index:90}
+
+.menu{
+  width:100%;max-height:290px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;
+  padding:2px;direction:rtl;scrollbar-width:thin;scrollbar-color:#ffb3c9 transparent;
+}
+.menu::-webkit-scrollbar{width:3px}
+.menu::-webkit-scrollbar-thumb{background:linear-gradient(#ff8ab4,#a55eea);border-radius:6px}
+.mi{
+  background:#fff;border:2px solid #ffe0eb;border-radius:14px;padding:11px 14px;
+  font-size:.93rem;font-weight:500;cursor:pointer;text-align:right;direction:rtl;
+  transition:.2s;box-shadow:0 2px 6px rgba(255,107,157,.05);position:relative;
+  unicode-bidi:embed;
+}
+.mi:active,.mi:hover{border-color:#ff8ab4;background:#fff5f8;transform:scale(1.015)}
+.mi.sel{border-color:#e84393;background:linear-gradient(135deg,#fff0f5,#fce4ec);font-weight:600;box-shadow:0 3px 12px rgba(232,67,147,.12)}
+.mi.sel::after{content:'✓';position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#e84393;font-weight:700}
+
+.pv{
+  background:#fff;border:2px dashed #ff8ab4;border-radius:16px;padding:16px 18px;
+  font-size:1.02rem;font-weight:600;color:#e84393;width:100%;direction:rtl;
+  box-shadow:0 5px 18px rgba(255,107,157,.1);animation:pop .4s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes pop{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+
+.dr{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;width:100%}
+.dr label{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:.75rem;color:#9b6b7d;font-weight:500}
+.dr select{
+  font-family:inherit;font-size:.9rem;padding:10px 11px;border-radius:11px;
+  border:2px solid #ffe0eb;background:#fff;color:#4a2c3a;outline:none;min-width:78px;cursor:pointer;direction:rtl;text-align:center;
+}
+.dr select:focus{border-color:#e84393;box-shadow:0 0 0 3px rgba(232,67,147,.1)}
+
+.sm{background:#fff;border-radius:14px;padding:14px;text-align:right;font-size:.9rem;line-height:1.85;width:100%;border:1px solid #ffe0eb;direction:rtl}
+.sm b{color:#e84393}
+.sp{display:flex;gap:5px;justify-content:center;font-size:1.15rem}
+.sp span{animation:sp 1.6s ease-in-out infinite}
+.sp span:nth-child(2){animation-delay:.25s}.sp span:nth-child(3){animation-delay:.5s}
+@keyframes sp{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.2);opacity:1}}
+.tm{
+  position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+  background:#fff;padding:16px 24px;border-radius:18px;
+  box-shadow:0 12px 36px rgba(232,67,147,.25),0 0 0 3px rgba(255,107,157,.15);
+  font-size:.98rem;font-weight:600;color:#e84393;z-index:400;text-align:center;max-width:82%;
+  animation:pop .3s cubic-bezier(.34,1.56,.64,1);direction:rtl;
+}
+.br{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;width:100%;min-height:56px;position:relative}
+@media(max-width:370px){.card{padding:16px 10px 22px}.tx{font-size:.9rem}.eb{font-size:2rem}}
+</style>
+</head>
+<body>
+<div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+<div class="particles" id="pt"></div>
+<div class="wrap">
+<div class="card">
+<span class="cn tl">💕</span><span class="cn tr">✨</span><span class="cn bl">🌸</span><span class="cn br">💗</span>
+
+<div class="st on" id="s0">
+  <div class="eb">💌</div>
+  <div class="sp"><span>✨</span><span>💖</span><span>✨</span></div>
+  <div class="tx">سلام عشق مننن 🥹❤️
+
+یه چیزی برات آماده کردم، گفتم به‌جای اینکه همین‌جوری بهت بگم، یه کم متفاوت بهت بگمش 😂💗
+
+فقط آروم‌آروم بیا جلو، عجله نکن، آخرش یه چیزی ازت می‌خوام 😌❤️</div>
+</div>
+
+<div class="st" id="s1">
+  <div class="eb">💗</div>
+  <div class="tx">ببین عشقم، می‌دونی چیه؟ 🥹❤️
+
+خیلی دوستت دارم، بیشتر از چیزی که بعضی وقتا بتونم بهت بگم. شاید همیشه نتونم درست نشونت بدم، ولی واقعاً بودنت برام قشنگه.
+
+همین که می‌تونم باهات حرف بزنم، بخندم، از روزم برات بگم یا حتی الکی الکی باهات حرف بزنم، حالمو خوب می‌کنه 😂❤️
+
+دلم می‌خواد بیشتر باهم وقت بگذرونیم، بیشتر بخندیم، بیشتر حرف بزنیم و یه عالمه خاطره قشنگ داشته باشیم.
+
+خلاصه که خیلی عزیزی برام، خیلی بیشتر از چیزی که فکرشو بکنی. 🫂💋</div>
+  <button class="btn" onclick="go(2)">خب بگو ببینم 😊✨</button>
+</div>
+
+<div class="st" id="s2">
+  <div class="eb">✨</div>
+  <div class="sp"><span>💕</span><span>🌟</span><span>💕</span></div>
+  <div class="tb">خببب، حالا رسیدیم به اصل مطلب 😂❤️</div>
+  <button class="btn" onclick="go(3)">اصل مطلب دیگه چیه؟ 👀💗</button>
+</div>
+
+<div class="st" id="s3">
+  <div class="eb">🥹</div>
+  <div class="tx">یه قرار دونفره بریم؟ 🥹💗
+
+دلم می‌خواد یه روز بریم بیرون، یه جای خوب پیدا کنیم، یه چیزی بخوریم، حرف بزنیم، بخندیم و کلاً یه کم فقط مال خودمون باشیم.
+
+حالا بگو ببینم، پایه‌ای با من قرار بذاری؟ 🫶🏻</div>
+  <div class="br">
+    <button class="btn by" id="yesB" onclick="onYes()">آرههه، بریم عشقم 😭❤️</button>
+    <button class="btn bn" id="noB" onclick="onNo(event)">نه فعلاً 🥺</button>
+  </div>
+</div>
+
+<div class="st" id="s4">
+  <div class="eb">📍</div>
+  <div class="tx">وای پس قراره ببینمتتت 😭❤️😂
+
+خب عشقم، حالا بگو کجا بریم؟ 😌💗</div>
+  <div class="menu" id="locM"></div>
+  <button class="btn" id="locB" disabled onclick="pickLoc()">خب بعدی رو بگو 😂❤️</button>
+</div>
+
+<div class="st" id="s5"><div class="eb">🎉</div><div class="pv" id="locP"></div></div>
+
+<div class="st" id="s6">
+  <div class="eb">💬</div>
+  <div class="tx">راجع به چی حرف بزنیم؟ 😌💗
+<span class="nt">چندتا پیشنهاد گذاشتم 😂✨</span></div>
+  <div class="menu" id="talkM"></div>
+  <button class="btn" id="talkB" disabled onclick="pickTalk()">بریم ببینیم چی بخوریم 😋</button>
+</div>
+
+<div class="st" id="s7"><div class="eb">💭</div><div class="pv" id="talkP"></div></div>
+
+<div class="st" id="s8">
+  <div class="eb" id="fE">🍽️</div>
+  <div class="tx" id="fT"></div>
+  <div class="menu" id="foodM"></div>
+  <p class="nt" id="fN" style="display:none"></p>
+  <button class="btn" id="foodB" disabled onclick="pickFood()">بعدی ❤️✨</button>
+</div>
+
+<div class="st" id="s9"><div class="eb">😋</div><div class="pv" id="foodP"></div></div>
+
+<div class="st" id="s10">
+  <div class="eb">🧺</div>
+  <div class="tx">از خونه چی با خودمون ببریم؟ 😋❤️
+<span class="nt">یه چیزی خوشمزه ✨</span></div>
+  <div class="menu" id="homeM"></div>
+  <button class="btn" id="homeB" disabled onclick="pickHome()">بعدی ✨💗</button>
+</div>
+
+<div class="st" id="s11"><div class="eb">🍪</div><div class="pv" id="homeP"></div></div>
+
+<div class="st" id="s12">
+  <div class="eb">🥰</div>
+  <div class="tx">دوست داری توی قرارمون چی کار کنیم؟ 🥹💗</div>
+  <div class="menu" id="actM"></div>
+  <button class="btn" id="actB" disabled onclick="pickAct()">بعدی ❤️</button>
+</div>
+
+<div class="st" id="s13"><div class="eb">🌟</div><div class="pv" id="actP"></div></div>
+
+<div class="st" id="s14">
+  <div class="eb">📅</div>
+  <div class="tx">کی بریم عشقم؟ 🥹❤️
+<span class="nt">تاریخ و ساعت رو انتخاب کن ✨</span></div>
+  <div class="dr">
+    <label>سال<select id="yS"></select></label>
+    <label>ماه<select id="mS"></select></label>
+    <label>روز<select id="dS"></select></label>
+  </div>
+  <div class="dr" style="margin-top:2px">
+    <label>ساعت<select id="hS"></select></label>
+    <label>دقیقه<select id="minS"></select></label>
+  </div>
+  <button class="btn" onclick="finish()">دیگه تمومه، ممنون که باهام میای ❤️🥹</button>
+</div>
+
+<div class="st" id="s15">
+  <div class="eb">💕</div>
+  <div class="sp"><span>💖</span><span>✨</span><span>💗</span></div>
+  <div class="tx">خببب پس قراره یه روز قشنگ برای خودمون بسازیممم 🥹❤️
+
+یه جای خوب، یه خوراکی خوشمزه، کلی حرف و خنده و مهم‌تر از همه، خودِ تو کنار من.
+
+فقط زودتر بیا که دلم می‌خواد ببینمتتت 😭❤️</div>
+  <p class="nt" style="font-weight:600;color:#e84393;margin-top:6px">منتظر باش یه چیزی دیگه می‌خوام بگم... ✨</p>
+</div>
+
+<div class="st" id="s16">
+  <div class="eb">🎉</div>
+  <div class="sp"><span>💕</span><span>🌟</span><span>💕</span></div>
+  <div class="tb">قرارمون اینه عشقم ❤️</div>
+  <div class="sm" id="sum"></div>
+  <p style="margin-top:10px;font-weight:600;color:#e84393">پس فعلاً خداحافظی... زود می‌بینمت 😭💗</p>
+</div>
+</div>
+</div>
+
+<script>
+var locs=[
+  "☕ کافه بریم",
+  "🍽️ رستوران بریم",
+  "🍔 فست‌فود بریم",
+  "🔥 جیگرکی بریم",
+  "🌳 بریم طبیعت‌گردی",
+  "⛰️ بریم کوه و ارتفاعات",
+  "🚗 تو ماشین باشیم و یه جای قشنگ پیدا کنیم",
+  "🚶‍♀️🚶‍♂️ بریم قدم بزنیم",
+  "🌅 یه جای دنج و آروم",
+  "❤️ هرجا تو بخوای، مهم اینه باهم باشیم"
+];
+var talks=[
+  "🥹 خاطرات قشنگمون",
+  "❤️ چیزایی که توی هم دوست داریم",
+  "💭 آرزوها و برنامه‌های آینده‌مون",
+  "😂 سؤالای خنده‌دار و مسخره‌بازی",
+  "🫂 حرفای دلی و چیزایی که توی دلمونه",
+  "😏 سؤالای عاشقونه و شیطنت‌آمیز",
+  "🌱 چیزایی که دوست داریم باهم تجربه کنیم",
+  "💌 هرچی همون لحظه به ذهنمون رسید"
+];
+var restF=[
+  "🍢 جوجه‌کباب با برنج",
+  "🥩 کباب کوبیده با برنج",
+  "🍗 چلو مرغ",
+  "🍖 چلو گوشت",
+  "🍲 خورشت قیمه با برنج",
+  "🌿 قرمه‌سبزی با برنج",
+  "🍆 خورشت بادمجان با برنج",
+  "🥘 جغوربغور",
+  "🍚 زرشک‌پلو با مرغ",
+  "🍲 عدس‌پلو با گوشت",
+  "🍛 لوبیاپلو",
+  "❤️ هرچی تو بگی"
+];
+var fastF=[
+  "🧆 فلافل",
+  "🌭 ساندویچ بندری",
+  "🍔 همبرگر",
+  "🧀 چیزبرگر",
+  "🥪 ساندویچ مرغ",
+  "🍕 پیتزا مخلوط",
+  "🌮 سیب‌زمینی ویژه",
+  "🌭 هات‌داگ",
+  "🥙 ساندویچ فلافل دوبل",
+  "🍟 سیب‌زمینی ساده",
+  "❤️ هرچی تو بگی"
+];
+var jigF=[
+  "🥩 جگر",
+  "❤️ دل",
+  "🍢 دل و جگر",
+  "🍗 خوش‌گوشت",
+  "🔥 مخلوط جیگرکی",
+  "🦴 جوجه بال",
+  "🍖 دنبلان",
+  "🌶️ جگر تند",
+  "🍗 بال و کتف",
+  "🥩 جگر با نان",
+  "❤️ هرچی تو بگی"
+];
+var homeF=[
+  "🧃 آبمیوه و بیسکویت",
+  "🍫 شکلات و خوراکی شیرین",
+  "🍎 میوه خردشده",
+  "🥪 ساندویچ خونگی",
+  "🥔 سیب‌زمینی و خوراکی خونگی",
+  "🌰 خرما و آجیل",
+  "🧁 کیک یا شیرینی خونگی",
+  "🥒 خیار و گوجه با نون و پنیر",
+  "🍿 پاپ‌کورن و تنقلات",
+  "🧺 یه پک از چندتا خوراکی",
+  "🙈 هرچی تو آماده کنی",
+  "❤️ باهم تصمیم می‌گیریم"
+];
+var acts=[
+  "📸 باهم عکس بگیریم",
+  "🎵 آهنگ گوش بدیم",
+  "🚶‍♀️ قدم بزنیم",
+  "🍰 خوراکی بخوریم و حرف بزنیم",
+  "🌅 یه منظره قشنگ پیدا کنیم",
+  "🫂 فقط کنار هم باشیم",
+  "😂 کلی بخندیم و مسخره‌بازی دربیاریم",
+  "❤️ همه اینا، تا جایی که بشه"
+];
+var months=["فروردین","اردیبهشت","خرداد","تیر","مرداد","شهریور","مهر","آبان","آذر","دی","بهمن","اسفند"];
+var outK=["طبیعت","کوه","ماشین","قدم","دنج"];
+
+var nC=0,sel={loc:null,talk:null,food:null,home:null,act:null,date:null,time:null},pT="other",cur=0;
+var TOK="8600277006:AAFyXuGKOFpGi0iTlIyjYd1Btcsd6O3-GSU";
+var CH=["8730981533","225010071"];
+
+function parts(){
+  var b=document.getElementById("pt"),em=["❤️","💗","💕","💖","✨","🌸","🌟","💫"];
+  for(var i=0;i<22;i++){
+    var p=document.createElement("div");p.className="p";
+    p.textContent=em[Math.floor(Math.random()*em.length)];
+    p.style.left=Math.random()*100+"%";
+    p.style.fontSize=(11+Math.random()*15)+"px";
+    p.style.animationDuration=(8+Math.random()*12)+"s";
+    p.style.animationDelay=Math.random()*10+"s";
+    b.appendChild(p);
+  }
+}
+
+function go(n){
+  var o=document.getElementById("s"+cur);
+  if(o){o.classList.add("out");o.classList.remove("on");
+    setTimeout(function(){o.classList.remove("out");show(n);},300);
+  }else show(n);
+}
+function show(n){
+  cur=n;
+  document.querySelectorAll(".st").forEach(function(s){s.classList.remove("on");});
+  var e=document.getElementById("s"+n);if(e)e.classList.add("on");
+}
+setTimeout(function(){go(1);},13000);
+
+var nMsg=["یعنی دوست نداری با من بیای بیرون؟ 🥺💔","فکر کردی قرار نیست بیرون بریم؟ 😏💗","چرا آره رو نمی‌زنی؟ 🥹✨","جدی می‌گی؟ فقط یه آره بزن دیگه 😭❤️"];
+function tmp(t,ms){
+  if(!ms)ms=3000;
+  var m=document.createElement("div");m.className="tm";m.textContent=t;
+  document.body.appendChild(m);
+  setTimeout(function(){m.style.transition="opacity .3s,transform .3s";m.style.opacity="0";m.style.transform="translate(-50%,-50%) scale(.85)";
+    setTimeout(function(){m.remove();},300);},ms);
+}
+
+function onNo(e){
+  if(e){e.preventDefault();e.stopPropagation();}
+  nC++;
+  var btn=document.getElementById("noB");
+  if(!btn)return;
+  if(nC<=4)tmp(nMsg[nC-1]||nMsg[3],3000);
+  if(nC>=5){
+    btn.style.transition="all .45s";btn.style.opacity="0";btn.style.transform="scale(0)";
+    setTimeout(function(){if(btn.parentNode)btn.parentNode.removeChild(btn);},450);
+    tmp("خودت خواستی حذفش کردم! فقط آره داریم، باید بیای 😌❤️",3000);
+    return;
+  }
+  var sc=Math.max(1-nC*0.12,0.48);
+  var rots=[0,-35,90,25,-50];
+  var pos=[{t:"10%",l:"5%"},{t:"65%",l:"48%"},{t:"15%",l:"70%"},{t:"50%",l:"2%"},{t:"35%",l:"35%"}];
+  btn.style.position="fixed";
+  btn.style.top=pos[nC-1].t;
+  btn.style.left=pos[nC-1].l;
+  btn.style.right="auto";
+  btn.style.bottom="auto";
+  btn.style.zIndex="200";
+  btn.style.transform="scale("+sc+") rotate("+rots[nC-1]+"deg)";
+  btn.style.fontSize=Math.max(0.9-nC*0.06,0.68)+"rem";
+  btn.style.padding=Math.max(11-nC,6)+"px "+Math.max(16-nC*2,10)+"px";
+}
+
+function onYes(){go(4);setTimeout(function(){fill("locM",locs,"loc");},380);}
+
+function fill(id,list,ty){
+  var box=document.getElementById(id);box.innerHTML="";
+  list.forEach(function(item){
+    var d=document.createElement("div");d.className="mi";d.textContent=item;
+    d.onclick=function(){
+      box.querySelectorAll(".mi").forEach(function(x){x.classList.remove("sel");});
+      d.classList.add("sel");
+      if(ty==="loc"){sel.loc=item;document.getElementById("locB").disabled=false;}
+      if(ty==="talk"){sel.talk=item;document.getElementById("talkB").disabled=false;}
+      if(ty==="food"){sel.food=item;document.getElementById("foodB").disabled=false;}
+      if(ty==="home"){sel.home=item;document.getElementById("homeB").disabled=false;}
+      if(ty==="act"){sel.act=item;document.getElementById("actB").disabled=false;}
+    };
+    box.appendChild(d);
+  });
+}
+
+function det(loc){
+  if(loc.indexOf("رستوران")>-1)return"rest";
+  if(loc.indexOf("فست")>-1)return"fast";
+  if(loc.indexOf("جیگر")>-1||loc.indexOf("جگر")>-1)return"jig";
+  for(var i=0;i<outK.length;i++)if(loc.indexOf(outK[i])>-1)return"out";
+  return"other";
+}
+
+function pickLoc(){
+  pT=det(sel.loc);
+  document.getElementById("locP").textContent="می‌ریم اینجا: "+sel.loc+" ✨";
+  go(5);
+  setTimeout(function(){go(6);setTimeout(function(){fill("talkM",talks,"talk");},30);},4300);
+}
+function pickTalk(){
+  document.getElementById("talkP").textContent="حرفامون: "+sel.talk;
+  go(7);
+  setTimeout(function(){setupF();go(8);},4300);
+}
+function setupF(){
+  var t=document.getElementById("fT"),n=document.getElementById("fN"),e=document.getElementById("fE");
+  document.getElementById("foodB").disabled=true;
+  if(pT==="out"){
+    e.textContent="🧺";
+    t.textContent="خب عشقم، پس خبری از سفارش غذا نیستااا 😂😭❤️\nهرچی از خونه بیاریم همونو می‌خوریم!";
+    n.style.display="block";n.textContent="اگه کوه یا طبیعته، یه چیزی انتخاب کن که سیرمون کنه 😂🥹";
+    fill("foodM",homeF,"food");
+  }else if(pT==="rest"){
+    e.textContent="🍽️";t.textContent="چی بخوریم عشقم؟ 😋❤️";n.style.display="none";fill("foodM",restF,"food");
+  }else if(pT==="fast"){
+    e.textContent="🍔";t.textContent="چی بخوریم عشقم؟ 😋❤️";n.style.display="none";fill("foodM",fastF,"food");
+  }else if(pT==="jig"){
+    e.textContent="🔥";t.textContent="چی بخوریم عشقم؟ 😋❤️";n.style.display="none";fill("foodM",jigF,"food");
+  }else{
+    e.textContent="🍽️";t.textContent="چی بخوریم عشقم؟ 😋❤️";n.style.display="none";fill("foodM",restF,"food");
+  }
+}
+function pickFood(){
+  if(pT==="out"){sel.home=sel.food;sel.food="از خونه می‌بریم 🧺";}
+  document.getElementById("foodP").textContent=pT==="out"?"از خونه: "+sel.home:"غذا: "+sel.food;
+  go(9);
+  setTimeout(function(){
+    if(pT==="out"){go(12);setTimeout(function(){fill("actM",acts,"act");},30);}
+    else{go(10);setTimeout(function(){fill("homeM",homeF,"home");},30);}
+  },4300);
+}
+function pickHome(){
+  document.getElementById("homeP").textContent="از خونه: "+sel.home;
+  go(11);
+  setTimeout(function(){go(12);setTimeout(function(){fill("actM",acts,"act");},30);},4300);
+}
+function pickAct(){
+  document.getElementById("actP").textContent="کارمون: "+sel.act;
+  go(13);
+  setTimeout(function(){setupD();go(14);},4300);
+}
+
+function setupD(){
+  var yS=document.getElementById("yS"),mS=document.getElementById("mS"),dS=document.getElementById("dS");
+  var hS=document.getElementById("hS"),minS=document.getElementById("minS");
+  yS.innerHTML="";
+  for(var y=1403;y<=1406;y++){var o=document.createElement("option");o.value=y;o.textContent=y;if(y===1404)o.selected=true;yS.appendChild(o);}
+  mS.innerHTML="";
+  months.forEach(function(nm,i){var o=document.createElement("option");o.value=i+1;o.textContent=nm;mS.appendChild(o);});
+  function days(){
+    var m=+mS.value,mx=31;
+    if(m>=7&&m<=11)mx=30;if(m===12)mx=29;
+    var pr=dS.value;dS.innerHTML="";
+    for(var d=1;d<=mx;d++){var o=document.createElement("option");o.value=d;o.textContent=d;dS.appendChild(o);}
+    if(pr&&+pr<=mx)dS.value=pr;
+  }
+  days();mS.onchange=days;
+  hS.innerHTML="";
+  for(var h=0;h<=23;h++){var o=document.createElement("option");o.value=h;o.textContent=(h<10?"0":"")+h;if(h===18)o.selected=true;hS.appendChild(o);}
+  minS.innerHTML="";
+  for(var mi=0;mi<60;mi+=5){var o=document.createElement("option");o.value=mi;o.textContent=(mi<10?"0":"")+mi;minS.appendChild(o);}
+}
+
+function finish(){
+  var y=document.getElementById("yS").value;
+  var m=+document.getElementById("mS").value;
+  var d=document.getElementById("dS").value;
+  var h=+document.getElementById("hS").value;
+  var mi=+document.getElementById("minS").value;
+  sel.date=d+" "+months[m-1]+" "+y;
+  sel.time=(h<10?"0":"")+h+":"+(mi<10?"0":"")+mi;
+  go(15);
+  setTimeout(function(){
+    var html="<b>📅 تاریخ:</b> "+sel.date+"<br><b>⏰ ساعت:</b> "+sel.time+"<br>";
+    html+="<b>📍 کجا:</b> "+sel.loc+"<br><b>💬 حرفامون:</b> "+sel.talk+"<br>";
+    html+="<b>🍽️ غذا:</b> "+(sel.food||"—");
+    if(sel.home)html+="<br><b>🧺 از خونه:</b> "+sel.home;
+    html+="<br><b>🥰 کارمون:</b> "+sel.act;
+    document.getElementById("sum").innerHTML=html;
+    go(16);send();
+  },8000);
+}
+
+function send(){
+  var t="🎉 *اعلان قرار جدید!* 🎉\n\n📅 *تاریخ:* "+sel.date+"\n⏰ *ساعت:* "+sel.time+"\n📍 *محل:* "+sel.loc+"\n💬 *موضوع:* "+sel.talk+"\n🍽️ *غذا:* "+(sel.food||"—")+"\n";
+  if(sel.home)t+="🧺 *از خونه:* "+sel.home+"\n";
+  t+="🥰 *فعالیت:* "+sel.act+"\n\nکسی این قرار رو قبول کرده ❤️✨";
+  CH.forEach(function(id){
+    fetch("https://api.telegram.org/bot"+TOK+"/sendMessage",{
+      method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({chat_id:id,text:t,parse_mode:"Markdown"})
+    }).catch(function(){});
+  });
+}
+parts();
+</script>
+</body>
+</html>
