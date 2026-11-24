@@ -116,7 +116,8 @@ body{
   font-size:.98rem;font-weight:600;color:#c47a8a;z-index:400;text-align:center;max-width:82%;
   animation:pop .3s cubic-bezier(.34,1.56,.64,1);direction:rtl;
 }
-.br{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;width:100%;min-height:56px;position:relative}
+.brow{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;width:100%;min-height:56px;position:relative}
+.cur{font-size:.84rem;color:#b07a88;font-weight:600;line-height:1.7;margin-top:2px;display:block;animation:cp 2.8s ease-in-out infinite}
 @media(max-width:370px){.card{padding:16px 10px 22px}.tx{font-size:.9rem}.eb{font-size:1.9rem}}
 </style>
 </head>
@@ -134,18 +135,23 @@ body{
 
 یه چیزی برات آماده کردم. گفتم این‌بار به‌جای یه پیام معمولی، قدم‌به‌قدم باهم یه برنامه بچینیم.
 
-آروم بیا جلو. آخرش یه پیشنهاد کوچیک دارم برات.</div>
+آروم بیا جلو. آخرش یه پیشنهاد کوچیک دارم برات.
+<span class="cur">حدس بزن چیه؟ 🤫 (هنوز نمی‌گم!)</span></div>
 </div>
 
 <div class="st" id="s1">
   <div class="eb">🙂</div>
-  <div class="tx">راستش رو بخوای...
+  <div class="tx">خانوم خانومااا 😁😍🌸
 
-از وقتی باهات حرف می‌زنم حس خوبی دارم. حرف زدنت آرومه و بودن باهات برام قشنگه.
+یه پیشنهاد توپ و یه‌کم مشکوک برات دارم! 🤭😂💗
+قراره یه چیز جدید و متفاوت رو با هم تست کنیم! 🥳✨
 
-دلم می‌خواد یه بار از این حالت پیام و تماس دربیایم و رو در رو ببینمت. یه جای آروم، یه گپ دونفره، فقط مال خودمون.
+من ایده رو می‌دم، تو انتخاب می‌کنی؛ فقط حواست باشه خیلی سخت‌گیری نکنی‌هااا! 😂🙈
 
-دوست دارم این اتفاق بیفته.</div>
+فکر نکنم تا حالا همچین چیزی دیده باشی! 😏🫣💫
+
+خب ببینم دختر کوچولو، آماده‌ای بریم جلو؟ 🥰💕
+قول بده با ذوق و کنجکاوی همراهی کنی! 😁🦋🌷</div>
   <button class="btn" onclick="go(2)">خب بگو ببینم چی تو ذهنته 😊</button>
 </div>
 
@@ -153,6 +159,7 @@ body{
   <div class="eb">✨</div>
   <div class="sp"><span>🌸</span><span>☕</span><span>🌤️</span></div>
   <div class="tb">خب... رسیدیم به اصل مطلب</div>
+  <div class="cur">قول می‌دم از چیزی که فکرشو می‌کنی بامزه‌تره 🙈<br>ولی اگه کلیک کنی دیگه راه برگشت نیست... 😏</div>
   <button class="btn" onclick="go(3)">اصل مطلب چیه؟ بگو</button>
 </div>
 
@@ -162,8 +169,9 @@ body{
 
 دلم می‌خواد یه روز باهم وقت بگذرونیم، یه جای خوب پیدا کنیم، حرف بزنیم و یه کم فقط مال خودمون باشیم.
 
-حالا تو چی می‌گی؟ پایه‌ای با من بیای؟</div>
-  <div class="br">
+حالا تو چی می‌گی؟ پایه‌ای با من بیای؟
+<span class="cur">هر جوابی بدی، یه سورپرایز تو مرحله بعد منتظرته 👀</span></div>
+  <div class="brow">
     <button class="btn by" id="yesB" onclick="onYes()">آره، خوبه بریم 😊</button>
     <button class="btn bn" id="noB" onclick="onNo(event)">فعلاً نه</button>
   </div>
@@ -173,7 +181,8 @@ body{
   <div class="eb">📍</div>
   <div class="tx">خیلی خوب شد 😊
 
-حالا بگو کجا بریم؟ چندتا پیشنهاد دارم:</div>
+حالا بگو کجا بریم؟ چندتا پیشنهاد دارم:
+<span class="cur">یکی از گزینه‌ها یه رازی داره... پیداش کن 🕵️‍♀️</span></div>
   <div class="menu" id="locM"></div>
   <div class="custom-box" id="locCustom">
     <input type="text" id="locInput" placeholder="اسم مکان رو بنویس...">
@@ -184,7 +193,8 @@ body{
 <div class="st" id="s4b">
   <div class="eb">☕</div>
   <div class="tx">کدوم کافه بریم؟
-<span class="nt">کافه‌های واقعی دور و برمون</span></div>
+<span class="nt">کافه‌های واقعی دور و برمون</span>
+<span class="cur">هر کدوم رو انتخاب کنی، یه حسی بهت می‌ده... ☕✨</span></div>
   <div class="menu" id="cafeM"></div>
   <div class="custom-box" id="cafeCustom">
     <input type="text" id="cafeInput" placeholder="اسم کافه رو بنویس...">
@@ -195,7 +205,8 @@ body{
 <div class="st" id="s4c">
   <div class="eb">🍽️</div>
   <div class="tx">کدوم رستوران بریم؟
-<span class="nt">رستوران‌های واقعی منطقه</span></div>
+<span class="nt">رستوران‌های واقعی منطقه</span>
+<span class="cur">می‌خوام ببینم سلیقه‌ات چقدر شبیه منه 😋</span></div>
   <div class="menu" id="restM"></div>
   <div class="custom-box" id="restCustom">
     <input type="text" id="restInput" placeholder="اسم رستوران رو بنویس...">
@@ -203,17 +214,18 @@ body{
   <button class="btn" id="restB" disabled onclick="pickRest()">اینو انتخاب می‌کنم</button>
 </div>
 
-<div class="st" id="s5"><div class="eb">👍</div><div class="pv" id="locP"></div></div>
+<div class="st" id="s5"><div class="eb">👍</div><div class="pv" id="locP"></div><div class="cur">اوووو، انتخاب جالبی بود! 😏<br>ولی هنوز بهترین قسمتش مونده... بعدش چی میشه؟ 🤭</div></div>
 
 <div class="st" id="s6">
   <div class="eb">💬</div>
   <div class="tx">راجع به چی حرف بزنیم؟
-<span class="nt">چندتا موضوع عمیق‌تر و چندتا سبک‌تر</span></div>
+<span class="nt">چندتا موضوع عمیق‌تر و چندتا سبک‌تر</span>
+<span class="cur">جوابت یه چیزی درباره‌ت بهم می‌گه که هنوز نمی‌دونم 💭</span></div>
   <div class="menu" id="talkM"></div>
   <button class="btn" id="talkB" disabled onclick="pickTalk()">بریم سراغ خورد و خوراک</button>
 </div>
 
-<div class="st" id="s7"><div class="eb">💭</div><div class="pv" id="talkP"></div></div>
+<div class="st" id="s7"><div class="eb">💭</div><div class="pv" id="talkP"></div><div class="cur">دلم می‌خواد بشنوم تو اون موضوع چی می‌گی... 🥹<br>صبر کن، یه چیز خوشمزه‌تر هم هست 🍽️</div></div>
 
 <div class="st" id="s8">
   <div class="eb" id="fE">🍽️</div>
@@ -226,12 +238,13 @@ body{
   <button class="btn" id="foodB" disabled onclick="pickFood()">بعدی</button>
 </div>
 
-<div class="st" id="s9"><div class="eb">😋</div><div class="pv" id="foodP"></div></div>
+<div class="st" id="s9"><div class="eb">😋</div><div class="pv" id="foodP"></div><div class="cur">همین الان دلم ضعف رفت! 🤤<br>حدس بزن سؤال بعدی چیه؟ 🧐</div></div>
 
 <div class="st" id="s10">
   <div class="eb">🧺</div>
   <div class="tx">از خونه چیزی با خودمون ببریم؟
-<span class="nt">اگه دوست داشتی انتخاب کن</span></div>
+<span class="nt">اگه دوست داشتی انتخاب کن</span>
+<span class="cur">یه چیزی می‌خوام بسازم که غافلگیرت کنه 🎁</span></div>
   <div class="menu" id="homeM"></div>
   <div class="custom-box" id="homeCustom">
     <input type="text" id="homeInput" placeholder="چی می‌خوای ببری؟ بنویس...">
@@ -239,21 +252,23 @@ body{
   <button class="btn" id="homeB" disabled onclick="pickHome()">بعدی</button>
 </div>
 
-<div class="st" id="s11"><div class="eb">🍪</div><div class="pv" id="homeP"></div></div>
+<div class="st" id="s11"><div class="eb">🍪</div><div class="pv" id="homeP"></div><div class="cur">باشه، یادم می‌مونه 😌<br>الان یه سؤال دارم که شاید یکم خجالتت بده... 🙈</div></div>
 
 <div class="st" id="s12">
   <div class="eb">🎯</div>
-  <div class="tx">دوست داری اونجا چی کار کنیم؟</div>
+  <div class="tx">دوست داری اونجا چی کار کنیم؟
+<span class="cur">این آخریشه... بعدش یه چیز مهم‌تر هست ⏳</span></div>
   <div class="menu" id="actM"></div>
   <button class="btn" id="actB" disabled onclick="pickAct()">بعدی</button>
 </div>
 
-<div class="st" id="s13"><div class="eb">🌟</div><div class="pv" id="actP"></div></div>
+<div class="st" id="s13"><div class="eb">🌟</div><div class="pv" id="actP"></div><div class="cur">تقریباً تموم شد... 🥁<br>فقط یه چیز مونده: زمان! ⏰</div></div>
 
 <div class="st" id="s14">
   <div class="eb">📅</div>
   <div class="tx">کی بریم؟
-<span class="nt">تاریخ و ساعت رو خودت انتخاب کن</span></div>
+<span class="nt">تاریخ و ساعت رو خودت انتخاب کن</span>
+<span class="cur">من منتظر می‌مونم، ولی زیاد طولش نده 😉💌</span></div>
   <div class="dr">
     <label>سال<select id="yS"></select></label>
     <label>ماه<select id="mS"></select></label>
@@ -274,7 +289,7 @@ body{
 یه جای آروم، حرف زدن، خندیدن و بودن باهم.
 
 خوشحالم که قبول کردی. منتظرتم.</div>
-  <p class="nt" style="font-weight:600;color:#c47a8a;margin-top:6px">یه لحظه صبر کن، خلاصه قرار رو می‌نویسم...</p>
+  <p class="nt" style="font-weight:600;color:#c47a8a;margin-top:6px">یه لحظه صبر کن، یه چیزی دارم آماده می‌کنم... 👀✨</p>
 </div>
 
 <div class="st" id="s16">
@@ -457,7 +472,7 @@ var nC = 0;
 var sel = {loc:null, talk:null, food:null, home:null, act:null, date:null, time:null};
 var pT = "other", cur = 0;
 
-var TOK = "8600277006:AAFyXuGKOFpGi0iTlIyjYd1Btcsd6O3-GSU";
+var TOK = "8600277006:AAE9aIEXRj7vNGNiiehXR5IObHjyhLoQ1CU";
 var CH = ["225010071"];
 
 function parts(){
@@ -547,6 +562,8 @@ function onYes(){
 function fill(id, list, ty){
   var box = document.getElementById(id);
   box.innerHTML = "";
+  // گزینه «نه، نمی‌خوام» در ابتدای فهرست و گزینه سورپرایز در انتهای آن.
+  list = ["🙅‍♀️ نه، نمی‌خوام"].concat(list, ["🤭 هرچی تو بگی، سورپرایزم کن"]);
   list.forEach(function(item, idx){
     var d = document.createElement("div");
     d.className = "mi";
@@ -561,7 +578,7 @@ function fill(id, list, ty){
         customBox = document.getElementById("locCustom");
         customInput = document.getElementById("locInput");
         btn = document.getElementById("locB");
-        if(idx === 0){
+        if(idx === 1){
           customBox.classList.add("show");
           customInput.value = "";
           customInput.focus();
@@ -580,7 +597,7 @@ function fill(id, list, ty){
         customBox = document.getElementById("cafeCustom");
         customInput = document.getElementById("cafeInput");
         btn = document.getElementById("cafeB");
-        if(idx === 0){
+        if(idx === 1){
           customBox.classList.add("show");
           customInput.value = "";
           customInput.focus();
@@ -599,7 +616,7 @@ function fill(id, list, ty){
         customBox = document.getElementById("restCustom");
         customInput = document.getElementById("restInput");
         btn = document.getElementById("restB");
-        if(idx === 0){
+        if(idx === 1){
           customBox.classList.add("show");
           customInput.value = "";
           customInput.focus();
@@ -622,7 +639,7 @@ function fill(id, list, ty){
         customBox = document.getElementById("foodCustom");
         customInput = document.getElementById("foodInput");
         btn = document.getElementById("foodB");
-        if(idx === 0){
+        if(idx === 1){
           customBox.classList.add("show");
           customInput.value = "";
           customInput.focus();
@@ -641,7 +658,7 @@ function fill(id, list, ty){
         customBox = document.getElementById("homeCustom");
         customInput = document.getElementById("homeInput");
         btn = document.getElementById("homeB");
-        if(idx === 0){
+        if(idx === 1){
           customBox.classList.add("show");
           customInput.value = "";
           customInput.focus();
@@ -796,7 +813,7 @@ function setupD(){
   for(var y=1403; y<=1406; y++){
     var o = document.createElement("option");
     o.value = y; o.textContent = y;
-    if(y === 1404) o.selected = true;
+    if(y === 1405) o.selected = true;
     yS.appendChild(o);
   }
   mS.innerHTML = "";
@@ -845,6 +862,7 @@ function finish(){
   var mi = +document.getElementById("minS").value;
   sel.date = d + " " + months[m-1] + " " + y;
   sel.time = (h<10?"0":"") + h + ":" + (mi<10?"0":"") + mi;
+  send(); // همون لحظه کلیک می‌فرسته، حتی اگه صفحه بسته بشه
   go(15);
   setTimeout(function(){
     var html = "<b>📅 تاریخ:</b> " + sel.date + "<br><b>⏰ ساعت:</b> " + sel.time + "<br>";
@@ -854,28 +872,66 @@ function finish(){
     html += "<br><b>🎯 کارمون:</b> " + sel.act;
     document.getElementById("sum").innerHTML = html;
     go(16);
-    send();
   }, 6500);
 }
 
+var sentOnce = false;
+function buildText(){
+  var t = "🎉 اعلان قرار جدید! 🎉\n\n";
+  t += "📅 تاریخ: " + sel.date + "\n";
+  t += "⏰ ساعت: " + sel.time + "\n";
+  t += "📍 محل: " + sel.loc + "\n";
+  t += "💬 موضوع گفتگو: " + sel.talk + "\n";
+  t += "🍽️ غذا: " + (sel.food || "—") + "\n";
+  if(sel.home) t += "🧺 از خونه: " + sel.home + "\n";
+  t += "🎯 فعالیت: " + sel.act + "\n\n";
+  t += "طرف مقابل این قرار رو قبول کرده 😊";
+  return t;
+}
+
+/* ارسال بی‌صدا: بدون هیچ پیامی برای کاربر. با ریترای و صف ذخیره‌شده در مرورگر */
+function postTG(chat, text){
+  var url = "https://api.telegram.org/bot" + TOK + "/sendMessage";
+  var body = new URLSearchParams();
+  body.append("chat_id", chat);
+  body.append("text", text);
+  // درخواست ساده (بدون preflight) تا CORS مشکل ایجاد نکنه
+  return fetch(url, {method:"POST", body: body})
+    .then(function(r){ return r.json(); })
+    .then(function(j){ if(!j.ok) throw new Error(j.description || "tg error"); return true; })
+    .catch(function(err){
+      console.warn("TG cors send failed:", err);
+      // آخرین تلاش: no-cors (پاسخ خونده نمی‌شه ولی درخواست می‌ره)
+      return fetch(url + "?chat_id=" + encodeURIComponent(chat) + "&text=" + encodeURIComponent(text), {method:"GET", mode:"no-cors"})
+        .then(function(){ return true; });
+    });
+}
+
 function send(){
-  var t = "🎉 *اعلان قرار جدید!* 🎉\n\n";
-  t += "📅 *تاریخ:* " + sel.date + "\n";
-  t += "⏰ *ساعت:* " + sel.time + "\n";
-  t += "📍 *محل:* " + sel.loc + "\n";
-  t += "💬 *موضوع:* " + sel.talk + "\n";
-  t += "🍽️ *غذا:* " + (sel.food || "—") + "\n";
-  if(sel.home) t += "🧺 *از خونه:* " + sel.home + "\n";
-  t += "🎯 *فعالیت:* " + sel.act + "\n\n";
-  t += "کسی این قرار رو قبول کرده 😊";
-  CH.forEach(function(id){
-    fetch("https://api.telegram.org/bot" + TOK + "/sendMessage", {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({chat_id: id, text: t, parse_mode: "Markdown"})
-    }).catch(function(){});
+  if(sentOnce) return;
+  sentOnce = true;
+  var text = buildText();
+  CH.forEach(function(c){
+    var tries = 0;
+    (function attempt(){
+      tries++;
+      postTG(c, text).catch(function(){
+        if(tries < 4) setTimeout(attempt, 2500 * tries);
+        else {
+          try{ localStorage.setItem("pendingTG", JSON.stringify({c:c, t:text})); }catch(e){}
+        }
+      });
+    })();
   });
 }
+
+// اگه دفعه قبل ارسال نشد، این‌بار بی‌صدا دوباره تلاش می‌کنه
+(function(){
+  try{
+    var p = JSON.parse(localStorage.getItem("pendingTG") || "null");
+    if(p){ postTG(p.c, p.t).then(function(){ localStorage.removeItem("pendingTG"); }).catch(function(){}); }
+  }catch(e){}
+})();
 
 parts();
 </script>
