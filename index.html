@@ -2,49 +2,938 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>تست تلگرام</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+<title>برنامه قرار 💌</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-body{font-family:Tahoma,sans-serif;padding:20px;max-width:480px;margin:auto;background:#fdf6f0;color:#4a3c35}
-button{width:100%;padding:14px;margin:8px 0;border:0;border-radius:12px;background:#c47a8a;color:#fff;font-size:16px;font-family:inherit}
-pre{background:#fff;padding:12px;border-radius:10px;white-space:pre-wrap;word-break:break-all;direction:ltr;text-align:left;font-size:13px;min-height:80px}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{direction:rtl}
+body{
+  font-family:'Vazirmatn',Tahoma,sans-serif;
+  min-height:100vh;overflow-x:hidden;color:#4a3c35;
+  background:linear-gradient(160deg,#fdf6f0,#f8f0f4,#f0f4f8,#f5f0eb,#faf6f2);
+  background-size:400% 400%;animation:bg 18s ease infinite;
+}
+@keyframes bg{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.particles{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden}
+.p{position:absolute;bottom:-20px;opacity:0;animation:rise linear infinite;user-select:none;filter:drop-shadow(0 0 3px rgba(180,120,140,.22))}
+@keyframes rise{0%{transform:translateY(0) rotate(0) scale(.5);opacity:0}10%{opacity:.5}90%{opacity:.28}100%{transform:translateY(-105vh) rotate(500deg) scale(1);opacity:0}}
+.orb{position:fixed;border-radius:50%;filter:blur(55px);opacity:.2;pointer-events:none;z-index:0;animation:of 13s ease-in-out infinite alternate}
+.o1{width:240px;height:240px;background:#e8b4c4;top:-60px;right:-40px}
+.o2{width:180px;height:180px;background:#b8c9d4;bottom:8%;left:-30px;animation-delay:-4s}
+.o3{width:140px;height:140px;background:#d4c0a8;top:42%;right:3%;animation-delay:-7s}
+@keyframes of{from{transform:translate(0,0)}to{transform:translate(16px,-14px)}}
+.wrap{position:relative;z-index:10;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:14px 10px}
+.card{
+  width:100%;max-width:400px;
+  background:linear-gradient(170deg,#fffcf9,#faf6f3 50%,#f8f2ed);
+  border-radius:22px;padding:22px 16px 28px;position:relative;
+  box-shadow:0 14px 36px rgba(140,100,110,.12);
+  overflow:hidden;border:1px solid rgba(200,170,160,.18);
+}
+.card::before{
+  content:'';position:absolute;inset:-2px;border-radius:24px;z-index:-1;
+  background:linear-gradient(135deg,#e8b4c4,#b8c9d4,#d4b48c,#c9b8c4,#e8b4c4);
+  background-size:300% 300%;animation:br 9s ease infinite;opacity:.45;
+}
+@keyframes br{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.cn{position:absolute;font-size:15px;opacity:.4;animation:cp 2.8s ease-in-out infinite;pointer-events:none}
+.cn.tl{top:10px;right:12px}.cn.tr{top:10px;left:12px;animation-delay:.5s}
+.cn.bl{bottom:10px;right:12px;animation-delay:1.1s}.cn.br{bottom:10px;left:12px;animation-delay:1.6s}
+@keyframes cp{0%,100%{transform:scale(1);opacity:.32}50%{transform:scale(1.12);opacity:.55}}
+
+.st{display:none;width:100%;flex-direction:column;align-items:center;gap:13px;text-align:center}
+.st.on{display:flex;animation:si .5s cubic-bezier(.22,1,.36,1) forwards}
+.st.out{animation:so .28s ease forwards}
+@keyframes si{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes so{from{opacity:1}to{opacity:0;transform:translateY(-10px)}}
+
+.eb{font-size:2.1rem;animation:bn 2.1s ease-in-out infinite;filter:drop-shadow(0 2px 5px rgba(160,100,120,.18))}
+@keyframes bn{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.tx{font-size:.97rem;line-height:1.9;font-weight:500;color:#4a3c35;white-space:pre-line;width:100%;padding:0 2px;direction:rtl;text-align:center}
+.tb{font-size:1.1rem;font-weight:700;background:linear-gradient(120deg,#c47a8a,#7a9ab8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.65;width:100%}
+.nt{font-size:.82rem;color:#8a7a72;line-height:1.55;display:block;margin-top:3px}
+
+.btn{
+  background:linear-gradient(135deg,#d48a9a,#c47a8a);color:#fff;border:none;
+  padding:12px 24px;border-radius:50px;font-family:inherit;font-size:.95rem;font-weight:600;
+  cursor:pointer;box-shadow:0 5px 16px rgba(180,100,120,.22);transition:.2s;margin-top:4px;
+}
+.btn:active{transform:scale(1.03)}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.by{background:linear-gradient(135deg,#7ab89a,#6aa88a);box-shadow:0 5px 16px rgba(90,150,120,.22)}
+.bn{background:linear-gradient(135deg,#d48a7a,#c47a6a);position:relative;z-index:90}
+
+.menu{
+  width:100%;max-height:300px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;
+  padding:2px;direction:rtl;scrollbar-width:thin;scrollbar-color:#e0b8c4 transparent;
+}
+.menu::-webkit-scrollbar{width:3px}
+.menu::-webkit-scrollbar-thumb{background:linear-gradient(#e0b8c4,#b8c9d4);border-radius:6px}
+.mi{
+  background:#fff;border:2px solid #efe4dc;border-radius:14px;padding:11px 14px;
+  font-size:.93rem;font-weight:500;cursor:pointer;text-align:right;direction:rtl;
+  transition:.2s;box-shadow:0 2px 5px rgba(140,100,110,.05);position:relative;unicode-bidi:embed;
+}
+.mi:active,.mi:hover{border-color:#e0b8c4;background:#fdf6f4;transform:scale(1.01)}
+.mi.sel{border-color:#c47a8a;background:linear-gradient(135deg,#fdf4f2,#f8ece8);font-weight:600;box-shadow:0 3px 10px rgba(180,100,120,.1)}
+.mi.sel::after{content:'✓';position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#c47a8a;font-weight:700}
+
+.custom-box{width:100%;display:none;margin-top:4px}
+.custom-box.show{display:block}
+.custom-box input{
+  width:100%;padding:12px 14px;border:2px solid #e0b8c4;border-radius:14px;
+  font-family:inherit;font-size:.93rem;direction:rtl;text-align:right;outline:none;
+  background:#fff;color:#4a3c35;
+}
+.custom-box input:focus{border-color:#c47a8a;box-shadow:0 0 0 3px rgba(196,122,138,.12)}
+
+.pv{
+  background:#fff;border:2px dashed #e0b8c4;border-radius:16px;padding:16px 18px;
+  font-size:1.02rem;font-weight:600;color:#c47a8a;width:100%;direction:rtl;
+  box-shadow:0 4px 14px rgba(180,100,120,.08);animation:pop .4s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes pop{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+
+.dr{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;width:100%}
+.dr label{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:.75rem;color:#8a7a72;font-weight:500}
+.dr select{
+  font-family:inherit;font-size:.9rem;padding:10px 11px;border-radius:11px;
+  border:2px solid #efe4dc;background:#fff;color:#4a3c35;outline:none;min-width:78px;cursor:pointer;direction:rtl;text-align:center;
+}
+.dr select:focus{border-color:#c47a8a;box-shadow:0 0 0 3px rgba(196,122,138,.12)}
+
+.sm{background:#fff;border-radius:14px;padding:14px;text-align:right;font-size:.9rem;line-height:1.85;width:100%;border:1px solid #efe4dc;direction:rtl}
+.sm b{color:#c47a8a}
+.sp{display:flex;gap:5px;justify-content:center;font-size:1.1rem}
+.sp span{animation:sp 1.7s ease-in-out infinite}
+.sp span:nth-child(2){animation-delay:.25s}.sp span:nth-child(3){animation-delay:.5s}
+@keyframes sp{0%,100%{transform:scale(1);opacity:.55}50%{transform:scale(1.15);opacity:1}}
+.tm{
+  position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+  background:#fff;padding:16px 24px;border-radius:18px;
+  box-shadow:0 12px 32px rgba(140,90,100,.18),0 0 0 3px rgba(224,184,196,.14);
+  font-size:.98rem;font-weight:600;color:#c47a8a;z-index:400;text-align:center;max-width:82%;
+  animation:pop .3s cubic-bezier(.34,1.56,.64,1);direction:rtl;
+}
+.brow{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;width:100%;min-height:56px;position:relative}
+.cur{font-size:.84rem;color:#b07a88;font-weight:600;line-height:1.7;margin-top:2px;display:block;animation:cp 2.8s ease-in-out infinite}
+@media(max-width:370px){.card{padding:16px 10px 22px}.tx{font-size:.9rem}.eb{font-size:1.9rem}}
 </style>
 </head>
 <body>
-<h3>تست ارسال به تلگرام</h3>
-<button onclick="t1()">۱) بررسی توکن (getMe)</button>
-<button onclick="t2()">۲) ارسال پیام تست</button>
-<button onclick="t3()">۳) دیدن آخرین پیام‌های رسیده به ربات (getUpdates)</button>
-<pre id="o">نتیجه اینجا نمایش داده می‌شود...</pre>
+<div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+<div class="particles" id="pt"></div>
+<div class="wrap">
+<div class="card">
+<span class="cn tl">✨</span><span class="cn tr">🌸</span><span class="cn bl">☕</span><span class="cn br">🌤️</span>
+
+<div class="st on" id="s0">
+  <div class="eb">👋</div>
+  <div class="sp"><span>✨</span><span>🌸</span><span>✨</span></div>
+  <div class="tx">سلام عزیزم 😊
+
+یه چیزی برات آماده کردم. گفتم این‌بار به‌جای یه پیام معمولی، قدم‌به‌قدم باهم یه برنامه بچینیم.
+
+آروم بیا جلو. آخرش یه پیشنهاد کوچیک دارم برات.
+<span class="cur">حدس بزن چیه؟ 🤫 (هنوز نمی‌گم!)</span></div>
+</div>
+
+<div class="st" id="s1">
+  <div class="eb">🙂</div>
+  <div class="tx">خانوم خانومااا 😁😍🌸
+
+یه پیشنهاد توپ و یه‌کم مشکوک برات دارم! 🤭😂💗
+قراره یه چیز جدید و متفاوت رو با هم تست کنیم! 🥳✨
+
+من ایده رو می‌دم، تو انتخاب می‌کنی؛ فقط حواست باشه خیلی سخت‌گیری نکنی‌هااا! 😂🙈
+
+فکر نکنم تا حالا همچین چیزی دیده باشی! 😏🫣💫
+
+خب ببینم دختر کوچولو، آماده‌ای بریم جلو؟ 🥰💕
+قول بده با ذوق و کنجکاوی همراهی کنی! 😁🦋🌷</div>
+  <button class="btn" onclick="go(2)">خب بگو ببینم چی تو ذهنته 😊</button>
+</div>
+
+<div class="st" id="s2">
+  <div class="eb">✨</div>
+  <div class="sp"><span>🌸</span><span>☕</span><span>🌤️</span></div>
+  <div class="tb">خب... رسیدیم به اصل مطلب</div>
+  <div class="cur">قول می‌دم از چیزی که فکرشو می‌کنی بامزه‌تره 🙈<br>ولی اگه کلیک کنی دیگه راه برگشت نیست... 😏</div>
+  <button class="btn" onclick="go(3)">اصل مطلب چیه؟ بگو</button>
+</div>
+
+<div class="st" id="s3">
+  <div class="eb">🤝</div>
+  <div class="tx">یه بار باهم بریم بیرون؟
+
+دلم می‌خواد یه روز باهم وقت بگذرونیم، یه جای خوب پیدا کنیم، حرف بزنیم و یه کم فقط مال خودمون باشیم.
+
+حالا تو چی می‌گی؟ پایه‌ای با من بیای؟
+<span class="cur">هر جوابی بدی، یه سورپرایز تو مرحله بعد منتظرته 👀</span></div>
+  <div class="brow">
+    <button class="btn by" id="yesB" onclick="onYes()">آره، خوبه بریم 😊</button>
+    <button class="btn bn" id="noB" onclick="onNo(event)">فعلاً نه</button>
+  </div>
+</div>
+
+<div class="st" id="s4">
+  <div class="eb">📍</div>
+  <div class="tx">خیلی خوب شد 😊
+
+حالا بگو کجا بریم؟ چندتا پیشنهاد دارم:
+<span class="cur">یکی از گزینه‌ها یه رازی داره... پیداش کن 🕵️‍♀️</span></div>
+  <div class="menu" id="locM"></div>
+  <div class="custom-box" id="locCustom">
+    <input type="text" id="locInput" placeholder="اسم مکان رو بنویس...">
+  </div>
+  <button class="btn" id="locB" disabled onclick="pickLoc()">خب بعدی رو بگو</button>
+</div>
+
+<div class="st" id="s4b">
+  <div class="eb">☕</div>
+  <div class="tx">کدوم کافه بریم؟
+<span class="nt">کافه‌های واقعی دور و برمون</span>
+<span class="cur">هر کدوم رو انتخاب کنی، یه حسی بهت می‌ده... ☕✨</span></div>
+  <div class="menu" id="cafeM"></div>
+  <div class="custom-box" id="cafeCustom">
+    <input type="text" id="cafeInput" placeholder="اسم کافه رو بنویس...">
+  </div>
+  <button class="btn" id="cafeB" disabled onclick="pickCafe()">اینو انتخاب می‌کنم</button>
+</div>
+
+<div class="st" id="s4c">
+  <div class="eb">🍽️</div>
+  <div class="tx">کدوم رستوران بریم؟
+<span class="nt">رستوران‌های واقعی منطقه</span>
+<span class="cur">می‌خوام ببینم سلیقه‌ات چقدر شبیه منه 😋</span></div>
+  <div class="menu" id="restM"></div>
+  <div class="custom-box" id="restCustom">
+    <input type="text" id="restInput" placeholder="اسم رستوران رو بنویس...">
+  </div>
+  <button class="btn" id="restB" disabled onclick="pickRest()">اینو انتخاب می‌کنم</button>
+</div>
+
+<div class="st" id="s5"><div class="eb">👍</div><div class="pv" id="locP"></div><div class="cur">اوووو، انتخاب جالبی بود! 😏<br>ولی هنوز بهترین قسمتش مونده... بعدش چی میشه؟ 🤭</div></div>
+
+<div class="st" id="s6">
+  <div class="eb">💬</div>
+  <div class="tx">راجع به چی حرف بزنیم؟
+<span class="nt">چندتا موضوع عمیق‌تر و چندتا سبک‌تر</span>
+<span class="cur">جوابت یه چیزی درباره‌ت بهم می‌گه که هنوز نمی‌دونم 💭</span></div>
+  <div class="menu" id="talkM"></div>
+  <button class="btn" id="talkB" disabled onclick="pickTalk()">بریم سراغ خورد و خوراک</button>
+</div>
+
+<div class="st" id="s7"><div class="eb">💭</div><div class="pv" id="talkP"></div><div class="cur">دلم می‌خواد بشنوم تو اون موضوع چی می‌گی... 🥹<br>صبر کن، یه چیز خوشمزه‌تر هم هست 🍽️</div></div>
+
+<div class="st" id="s8">
+  <div class="eb" id="fE">🍽️</div>
+  <div class="tx" id="fT"></div>
+  <div class="menu" id="foodM"></div>
+  <div class="custom-box" id="foodCustom">
+    <input type="text" id="foodInput" placeholder="اسم غذا یا نوشیدنی رو بنویس...">
+  </div>
+  <p class="nt" id="fN" style="display:none"></p>
+  <button class="btn" id="foodB" disabled onclick="pickFood()">بعدی</button>
+</div>
+
+<div class="st" id="s9"><div class="eb">😋</div><div class="pv" id="foodP"></div><div class="cur">همین الان دلم ضعف رفت! 🤤<br>حدس بزن سؤال بعدی چیه؟ 🧐</div></div>
+
+<div class="st" id="s10">
+  <div class="eb">🧺</div>
+  <div class="tx">از خونه چیزی با خودمون ببریم؟
+<span class="nt">اگه دوست داشتی انتخاب کن</span>
+<span class="cur">یه چیزی می‌خوام بسازم که غافلگیرت کنه 🎁</span></div>
+  <div class="menu" id="homeM"></div>
+  <div class="custom-box" id="homeCustom">
+    <input type="text" id="homeInput" placeholder="چی می‌خوای ببری؟ بنویس...">
+  </div>
+  <button class="btn" id="homeB" disabled onclick="pickHome()">بعدی</button>
+</div>
+
+<div class="st" id="s11"><div class="eb">🍪</div><div class="pv" id="homeP"></div><div class="cur">باشه، یادم می‌مونه 😌<br>الان یه سؤال دارم که شاید یکم خجالتت بده... 🙈</div></div>
+
+<div class="st" id="s12">
+  <div class="eb">🎯</div>
+  <div class="tx">دوست داری اونجا چی کار کنیم؟
+<span class="cur">این آخریشه... بعدش یه چیز مهم‌تر هست ⏳</span></div>
+  <div class="menu" id="actM"></div>
+  <button class="btn" id="actB" disabled onclick="pickAct()">بعدی</button>
+</div>
+
+<div class="st" id="s13"><div class="eb">🌟</div><div class="pv" id="actP"></div><div class="cur">تقریباً تموم شد... 🥁<br>فقط یه چیز مونده: زمان! ⏰</div></div>
+
+<div class="st" id="s14">
+  <div class="eb">📅</div>
+  <div class="tx">کی بریم؟
+<span class="nt">تاریخ و ساعت رو خودت انتخاب کن</span>
+<span class="cur">من منتظر می‌مونم، ولی زیاد طولش نده 😉💌</span></div>
+  <div class="dr">
+    <label>سال<select id="yS"></select></label>
+    <label>ماه<select id="mS"></select></label>
+    <label>روز<select id="dS"></select></label>
+  </div>
+  <div class="dr" style="margin-top:2px">
+    <label>ساعت<select id="hS"></select></label>
+    <label>دقیقه<select id="minS"></select></label>
+  </div>
+  <button class="btn" onclick="finish()">تمومه، ممنون که قبول کردی 😊</button>
+</div>
+
+<div class="st" id="s15">
+  <div class="eb">🙂</div>
+  <div class="sp"><span>✨</span><span>🌸</span><span>☕</span></div>
+  <div class="tx">خب پس قرار شد یه بار باهم وقت بگذرونیم.
+
+یه جای آروم، حرف زدن، خندیدن و بودن باهم.
+
+خوشحالم که قبول کردی. منتظرتم.</div>
+  <p class="nt" style="font-weight:600;color:#c47a8a;margin-top:6px">یه لحظه صبر کن، یه چیزی دارم آماده می‌کنم... 👀✨</p>
+</div>
+
+<div class="st" id="s16">
+  <div class="eb">🎉</div>
+  <div class="sp"><span>🌸</span><span>🌤️</span><span>☕</span></div>
+  <div class="tb">خلاصه قرارمون اینه</div>
+  <div class="sm" id="sum"></div>
+  <p style="margin-top:12px;font-weight:600;color:#c47a8a">فعلاً خداحافظ، زود می‌بینمت 😊</p>
+</div>
+</div>
+</div>
+
 <script>
+/* ===== داده‌ها ===== */
+var locs = [
+  "✏️ خودم می‌نویسم...",
+  "☕ کافه بریم",
+  "🍽️ رستوران بریم",
+  "🍔 فست‌فود",
+  "🔥 جیگرکی یا دلمون",
+  "🌳 طبیعت و فضای سبز",
+  "⛰️ جای مرتفع با منظره",
+  "🚗 با ماشین بگردیم و یه جای قشنگ پیدا کنیم",
+  "🚶‍♀️🚶‍♂️ قدم بزنیم تو مسیرهای آروم",
+  "🌅 نقطه دنج با هوای تازه",
+  "🏞️ کنار فضای سبز یا رودخونه",
+  "🏡 باغ یا فضای باز آروم",
+  "🍵 چایخونه با صندلی بیرون"
+];
+
+var cafes = [
+  "✏️ خودم می‌نویسم...",
+  "کافه دانژه",
+  "کافه کورتادو",
+  "کافه کارامل",
+  "کافه راندو",
+  "قهوه و کافه افشین",
+  "کافه تاتلی",
+  "کافه فود کاژه",
+  "کافه هون",
+  "کافه لومیِر",
+  "کافه تانوش",
+  "کافه رستوران شمعدونی",
+  "کافه رستوران فانوس",
+  "کافه رستوران کوآلا",
+  "بلو کافه",
+  "کافه شاهنامه",
+  "کافه افرا",
+  "کافه رزالینا",
+  "کافه لاوین",
+  "کافه سبز"
+];
+
+var restaurants = [
+  "✏️ خودم می‌نویسم...",
+  "رستوران میلاد",
+  "رستوران چنگال طلایی",
+  "رستوران مهراب",
+  "رستوران برکت",
+  "رستوران بوف",
+  "رستوران گلچین",
+  "رستوران شانلی",
+  "رستوران اکبری",
+  "کبابی و جگرسرای دنج",
+  "رستوران یاس",
+  "رستوران مروارید",
+  "رستوران الماس شرق",
+  "رستوران پارسی",
+  "رستوران ایرانیان",
+  "رستوران الماس غرب",
+  "کافه رستوران شمعدونی"
+];
+
+var talks = [
+  "چیزایی که توی هم دوست داریم و برامون مهمه",
+  "آرزوها و چیزایی که دلمون می‌خواد تجربه کنیم",
+  "حرفای دلی و چیزایی که معمولاً به زبون نمیاریم",
+  "خاطرات قشنگ و لحظه‌هایی که هنوز یادمونه",
+  "چیزایی که از آینده انتظار داریم",
+  "ترس‌ها و نگرانی‌هایی که گاهی اذیتمون می‌کنه",
+  "چیزایی که تازگی یاد گرفتیم یا کشف کردیم",
+  "موسیقی، فیلم و کتاب‌هایی که حال‌مون رو خوب می‌کنه",
+  "جاهایی که دلمون می‌خواد باهم بریم",
+  "سؤالای بامزه و گپ‌های سبک",
+  "کار و روزمرگی و چیزایی که انرژی‌مون رو می‌گیره",
+  "هرچی همون لحظه به ذهنمون رسید"
+];
+
+var restF = [
+  "✏️ خودم می‌نویسم...",
+  "جوجه‌کباب با برنج",
+  "کباب کوبیده با برنج",
+  "چلو مرغ",
+  "چلو گوشت",
+  "خورشت قیمه",
+  "قرمه‌سبزی با برنج",
+  "خورشت بادمجان",
+  "جغوربغور",
+  "زرشک‌پلو با مرغ",
+  "عدس‌پلو با گوشت",
+  "لوبیاپلو",
+  "آبگوشت سنتی",
+  "هرچی تو بگی"
+];
+
+var fastF = [
+  "✏️ خودم می‌نویسم...",
+  "فلافل",
+  "ساندویچ بندری",
+  "همبرگر",
+  "چیزبرگر",
+  "ساندویچ مرغ",
+  "پیتزا مخلوط",
+  "سیب‌زمینی ویژه",
+  "هات‌داگ",
+  "ساندویچ فلافل دوبل",
+  "سیب‌زمینی ساده",
+  "هرچی تو بگی"
+];
+
+var jigF = [
+  "✏️ خودم می‌نویسم...",
+  "جگر",
+  "دل",
+  "دل و جگر",
+  "خوش‌گوشت",
+  "مخلوط جیگرکی",
+  "جوجه بال",
+  "دنبلان",
+  "جگر تند",
+  "بال و کتف",
+  "جگر با نان",
+  "هرچی تو بگی"
+];
+
+var cafeF = [
+  "✏️ خودم می‌نویسم...",
+  "قهوه و کیک",
+  "چای و شیرینی",
+  "شیک یا آیس‌کافی",
+  "صبحانه یا میان‌وعده",
+  "دسر و قهوه",
+  "آبمیوه طبیعی و کیک",
+  "هرچی تو بگی"
+];
+
+var homeF = [
+  "✏️ خودم می‌نویسم...",
+  "آبمیوه و بیسکویت",
+  "شکلات و خوراکی شیرین",
+  "میوه خردشده",
+  "ساندویچ خونگی",
+  "سیب‌زمینی و خوراکی خونگی",
+  "خرما و آجیل",
+  "کیک یا شیرینی خونگی",
+  "خیار و گوجه با نون و پنیر",
+  "پاپ‌کورن و تنقلات",
+  "فلاسک چای و یه چیزی کنارش",
+  "هرچی تو آماده کنی",
+  "باهم تصمیم می‌گیریم"
+];
+
+var acts = [
+  "باهم عکس بگیریم",
+  "آهنگ گوش بدیم و حال کنیم",
+  "قدم بزنیم و حرف بزنیم",
+  "خوراکی بخوریم و گپ بزنیم",
+  "یه منظره قشنگ پیدا کنیم و بشینیم",
+  "فقط کنار هم باشیم و راحت حرف بزنیم",
+  "کلی بخندیم و مسخره‌بازی دربیاریم",
+  "چای یا قهوه بنوشیم و وقت بگذرونیم",
+  "تو طبیعت کمی قدم بزنیم",
+  "همه اینا، تا جایی که حالش رو داشته باشیم"
+];
+
+var months = ["فروردین","اردیبهشت","خرداد","تیر","مرداد","شهریور","مهر","آبان","آذر","دی","بهمن","اسفند"];
+var outK = ["طبیعت","کوه","ماشین","قدم","دنج","رودخونه","باغ","مرتفع","فضای سبز","چایخونه","بگردیم"];
+
+var nC = 0;
+var sel = {loc:null, talk:null, food:null, home:null, act:null, date:null, time:null};
+var pT = "other", cur = 0;
+
 var TOK = "8600277006:AAE9aIEXRj7vNGNiiehXR5IObHjyhLoQ1CU";
-var CH = "225010071";
-var o = document.getElementById("o");
-function show(x){ o.textContent = typeof x === "string" ? x : JSON.stringify(x, null, 2); }
-function call(method, params){
+var CH = ["225010071"];
+
+function parts(){
+  var b = document.getElementById("pt");
+  var em = ["✨","🌸","☕","🌤️","🍃","🌟","🍂","🪴"];
+  for(var i=0;i<18;i++){
+    var p = document.createElement("div");
+    p.className = "p";
+    p.textContent = em[Math.floor(Math.random()*em.length)];
+    p.style.left = Math.random()*100 + "%";
+    p.style.fontSize = (11 + Math.random()*13) + "px";
+    p.style.animationDuration = (9 + Math.random()*11) + "s";
+    p.style.animationDelay = Math.random()*9 + "s";
+    b.appendChild(p);
+  }
+}
+
+function go(n){
+  var o = document.getElementById("s" + cur);
+  if(o){
+    o.classList.add("out");
+    o.classList.remove("on");
+    setTimeout(function(){ o.classList.remove("out"); show(n); }, 280);
+  } else show(n);
+}
+function show(n){
+  cur = n;
+  document.querySelectorAll(".st").forEach(function(s){ s.classList.remove("on"); });
+  var e = document.getElementById("s" + n);
+  if(e) e.classList.add("on");
+}
+setTimeout(function(){ go(1); }, 10000);
+
+var nMsg = [
+  "مطمئنی؟ یه بار امتحان کردنش ضرر نداره 😊",
+  "فکر کردم شاید خوشت بیاد...",
+  "فقط یه بار، قول می‌دم اذیتت نکنم",
+  "آخه جدی می‌گی؟ یه آره کوچیک بزن دیگه"
+];
+function tmp(t, ms){
+  if(!ms) ms = 2800;
+  var m = document.createElement("div");
+  m.className = "tm";
+  m.textContent = t;
+  document.body.appendChild(m);
+  setTimeout(function(){
+    m.style.transition = "opacity .3s,transform .3s";
+    m.style.opacity = "0";
+    m.style.transform = "translate(-50%,-50%) scale(.85)";
+    setTimeout(function(){ m.remove(); }, 300);
+  }, ms);
+}
+
+function onNo(e){
+  if(e){ e.preventDefault(); e.stopPropagation(); }
+  nC++;
+  var btn = document.getElementById("noB");
+  if(!btn) return;
+  if(nC <= 4) tmp(nMsg[nC-1] || nMsg[3], 2800);
+  if(nC >= 5){
+    btn.style.transition = "all .4s";
+    btn.style.opacity = "0";
+    btn.style.transform = "scale(0)";
+    setTimeout(function(){ if(btn.parentNode) btn.parentNode.removeChild(btn); }, 400);
+    tmp("باشه دیگه، فقط گزینه آره موند 😊", 2800);
+    return;
+  }
+  var sc = Math.max(1 - nC*0.12, 0.5);
+  var rots = [0, -30, 80, 20, -45];
+  var pos = [{t:"12%",l:"6%"},{t:"62%",l:"45%"},{t:"18%",l:"68%"},{t:"48%",l:"4%"},{t:"35%",l:"38%"}];
+  btn.style.position = "fixed";
+  btn.style.top = pos[nC-1].t;
+  btn.style.left = pos[nC-1].l;
+  btn.style.right = "auto";
+  btn.style.bottom = "auto";
+  btn.style.zIndex = "200";
+  btn.style.transform = "scale("+sc+") rotate("+rots[nC-1]+"deg)";
+  btn.style.fontSize = Math.max(0.9 - nC*0.05, 0.7) + "rem";
+  btn.style.padding = Math.max(11-nC,7) + "px " + Math.max(16-nC*2,11) + "px";
+}
+
+function onYes(){
+  go(4);
+  setTimeout(function(){ fill("locM", locs, "loc"); }, 360);
+}
+
+function fill(id, list, ty){
+  var box = document.getElementById(id);
+  box.innerHTML = "";
+  // گزینه «نه، نمی‌خوام» در ابتدای فهرست و گزینه سورپرایز در انتهای آن.
+  list = ["🙅‍♀️ نه، نمی‌خوام"].concat(list, ["🤭 هرچی تو بگی، سورپرایزم کن"]);
+  list.forEach(function(item, idx){
+    var d = document.createElement("div");
+    d.className = "mi";
+    d.textContent = item;
+    d.onclick = function(){
+      box.querySelectorAll(".mi").forEach(function(x){ x.classList.remove("sel"); });
+      d.classList.add("sel");
+
+      // مدیریت کاستوم
+      var customBox = null, customInput = null, btn = null;
+      if(ty === "loc"){
+        customBox = document.getElementById("locCustom");
+        customInput = document.getElementById("locInput");
+        btn = document.getElementById("locB");
+        if(idx === 1){
+          customBox.classList.add("show");
+          customInput.value = "";
+          customInput.focus();
+          btn.disabled = true;
+          customInput.oninput = function(){
+            btn.disabled = customInput.value.trim().length < 2;
+            sel.loc = customInput.value.trim();
+          };
+        } else {
+          customBox.classList.remove("show");
+          sel.loc = item;
+          btn.disabled = false;
+        }
+      }
+      if(ty === "cafe"){
+        customBox = document.getElementById("cafeCustom");
+        customInput = document.getElementById("cafeInput");
+        btn = document.getElementById("cafeB");
+        if(idx === 1){
+          customBox.classList.add("show");
+          customInput.value = "";
+          customInput.focus();
+          btn.disabled = true;
+          customInput.oninput = function(){
+            btn.disabled = customInput.value.trim().length < 2;
+            sel.loc = customInput.value.trim();
+          };
+        } else {
+          customBox.classList.remove("show");
+          sel.loc = item;
+          btn.disabled = false;
+        }
+      }
+      if(ty === "rest"){
+        customBox = document.getElementById("restCustom");
+        customInput = document.getElementById("restInput");
+        btn = document.getElementById("restB");
+        if(idx === 1){
+          customBox.classList.add("show");
+          customInput.value = "";
+          customInput.focus();
+          btn.disabled = true;
+          customInput.oninput = function(){
+            btn.disabled = customInput.value.trim().length < 2;
+            sel.loc = customInput.value.trim();
+          };
+        } else {
+          customBox.classList.remove("show");
+          sel.loc = item;
+          btn.disabled = false;
+        }
+      }
+      if(ty === "talk"){
+        sel.talk = item;
+        document.getElementById("talkB").disabled = false;
+      }
+      if(ty === "food"){
+        customBox = document.getElementById("foodCustom");
+        customInput = document.getElementById("foodInput");
+        btn = document.getElementById("foodB");
+        if(idx === 1){
+          customBox.classList.add("show");
+          customInput.value = "";
+          customInput.focus();
+          btn.disabled = true;
+          customInput.oninput = function(){
+            btn.disabled = customInput.value.trim().length < 2;
+            sel.food = customInput.value.trim();
+          };
+        } else {
+          customBox.classList.remove("show");
+          sel.food = item;
+          btn.disabled = false;
+        }
+      }
+      if(ty === "home"){
+        customBox = document.getElementById("homeCustom");
+        customInput = document.getElementById("homeInput");
+        btn = document.getElementById("homeB");
+        if(idx === 1){
+          customBox.classList.add("show");
+          customInput.value = "";
+          customInput.focus();
+          btn.disabled = true;
+          customInput.oninput = function(){
+            btn.disabled = customInput.value.trim().length < 2;
+            sel.home = customInput.value.trim();
+          };
+        } else {
+          customBox.classList.remove("show");
+          sel.home = item;
+          btn.disabled = false;
+        }
+      }
+      if(ty === "act"){
+        sel.act = item;
+        document.getElementById("actB").disabled = false;
+      }
+    };
+    box.appendChild(d);
+  });
+}
+
+function det(loc){
+  if(!loc) return "other";
+  if(loc.indexOf("کافه") > -1) return "cafe";
+  if(loc.indexOf("رستوران") > -1) return "rest";
+  if(loc.indexOf("فست") > -1) return "fast";
+  if(loc.indexOf("جیگر") > -1 || loc.indexOf("جگر") > -1 || loc.indexOf("دل") > -1) return "jig";
+  for(var i=0;i<outK.length;i++) if(loc.indexOf(outK[i]) > -1) return "out";
+  return "other";
+}
+
+function pickLoc(){
+  if(!sel.loc || sel.loc.length < 2) return;
+  pT = det(sel.loc);
+  if(pT === "cafe"){
+    go("4b");
+    setTimeout(function(){ fill("cafeM", cafes, "cafe"); }, 50);
+    return;
+  }
+  if(pT === "rest"){
+    go("4c");
+    setTimeout(function(){ fill("restM", restaurants, "rest"); }, 50);
+    return;
+  }
+  document.getElementById("locP").textContent = "می‌ریم اینجا: " + sel.loc;
+  go(5);
+  setTimeout(function(){ go(6); setTimeout(function(){ fill("talkM", talks, "talk"); }, 30); }, 3800);
+}
+
+function pickCafe(){
+  if(!sel.loc || sel.loc.length < 2) return;
+  document.getElementById("locP").textContent = "می‌ریم اینجا: " + sel.loc;
+  go(5);
+  setTimeout(function(){ go(6); setTimeout(function(){ fill("talkM", talks, "talk"); }, 30); }, 3800);
+}
+
+function pickRest(){
+  if(!sel.loc || sel.loc.length < 2) return;
+  document.getElementById("locP").textContent = "می‌ریم اینجا: " + sel.loc;
+  go(5);
+  setTimeout(function(){ go(6); setTimeout(function(){ fill("talkM", talks, "talk"); }, 30); }, 3800);
+}
+
+function pickTalk(){
+  document.getElementById("talkP").textContent = "حرفامون: " + sel.talk;
+  go(7);
+  setTimeout(function(){ setupF(); go(8); }, 3800);
+}
+
+function setupF(){
+  var t = document.getElementById("fT");
+  var n = document.getElementById("fN");
+  var e = document.getElementById("fE");
+  document.getElementById("foodB").disabled = true;
+  document.getElementById("foodCustom").classList.remove("show");
+
+  if(pT === "out"){
+    e.textContent = "🧺";
+    t.textContent = "چون قراره بریم فضای باز، بهتره از خونه چیزی با خودمون ببریم.\nچی فکر می‌کنی خوبه؟";
+    n.style.display = "block";
+    n.textContent = "چیزی انتخاب کن که هم سبک باشه هم سیرمون کنه";
+    fill("foodM", homeF, "food");
+  } else if(pT === "rest"){
+    e.textContent = "🍽️";
+    t.textContent = "چی بخوریم؟";
+    n.style.display = "none";
+    fill("foodM", restF, "food");
+  } else if(pT === "fast"){
+    e.textContent = "🍔";
+    t.textContent = "چی بخوریم؟";
+    n.style.display = "none";
+    fill("foodM", fastF, "food");
+  } else if(pT === "jig"){
+    e.textContent = "🔥";
+    t.textContent = "چی بخوریم؟";
+    n.style.display = "none";
+    fill("foodM", jigF, "food");
+  } else if(pT === "cafe"){
+    e.textContent = "☕";
+    t.textContent = "تو کافه چی سفارش بدیم؟";
+    n.style.display = "none";
+    fill("foodM", cafeF, "food");
+  } else {
+    e.textContent = "🍽️";
+    t.textContent = "چی بخوریم؟";
+    n.style.display = "none";
+    fill("foodM", restF, "food");
+  }
+}
+
+function pickFood(){
+  if(!sel.food || sel.food.length < 2) return;
+  if(pT === "out"){
+    sel.home = sel.food;
+    sel.food = "از خونه می‌بریم";
+  }
+  document.getElementById("foodP").textContent = pT === "out" ? "از خونه: " + sel.home : "غذا: " + sel.food;
+  go(9);
+  setTimeout(function(){
+    if(pT === "out"){
+      go(12);
+      setTimeout(function(){ fill("actM", acts, "act"); }, 30);
+    } else {
+      go(10);
+      setTimeout(function(){ fill("homeM", homeF, "home"); }, 30);
+    }
+  }, 3800);
+}
+
+function pickHome(){
+  if(!sel.home || sel.home.length < 2) return;
+  document.getElementById("homeP").textContent = "از خونه: " + sel.home;
+  go(11);
+  setTimeout(function(){ go(12); setTimeout(function(){ fill("actM", acts, "act"); }, 30); }, 3800);
+}
+
+function pickAct(){
+  document.getElementById("actP").textContent = "کارمون: " + sel.act;
+  go(13);
+  setTimeout(function(){ setupD(); go(14); }, 3800);
+}
+
+function setupD(){
+  var yS = document.getElementById("yS");
+  var mS = document.getElementById("mS");
+  var dS = document.getElementById("dS");
+  var hS = document.getElementById("hS");
+  var minS = document.getElementById("minS");
+  yS.innerHTML = "";
+  for(var y=1403; y<=1406; y++){
+    var o = document.createElement("option");
+    o.value = y; o.textContent = y;
+    if(y === 1405) o.selected = true;
+    yS.appendChild(o);
+  }
+  mS.innerHTML = "";
+  months.forEach(function(nm, i){
+    var o = document.createElement("option");
+    o.value = i+1; o.textContent = nm;
+    mS.appendChild(o);
+  });
+  function days(){
+    var m = +mS.value, mx = 31;
+    if(m >= 7 && m <= 11) mx = 30;
+    if(m === 12) mx = 29;
+    var pr = dS.value;
+    dS.innerHTML = "";
+    for(var d=1; d<=mx; d++){
+      var o = document.createElement("option");
+      o.value = d; o.textContent = d;
+      dS.appendChild(o);
+    }
+    if(pr && +pr <= mx) dS.value = pr;
+  }
+  days();
+  mS.onchange = days;
+  hS.innerHTML = "";
+  for(var h=0; h<=23; h++){
+    var o = document.createElement("option");
+    o.value = h;
+    o.textContent = (h<10?"0":"") + h;
+    if(h === 18) o.selected = true;
+    hS.appendChild(o);
+  }
+  minS.innerHTML = "";
+  for(var mi=0; mi<60; mi+=5){
+    var o = document.createElement("option");
+    o.value = mi;
+    o.textContent = (mi<10?"0":"") + mi;
+    minS.appendChild(o);
+  }
+}
+
+function finish(){
+  var y = document.getElementById("yS").value;
+  var m = +document.getElementById("mS").value;
+  var d = document.getElementById("dS").value;
+  var h = +document.getElementById("hS").value;
+  var mi = +document.getElementById("minS").value;
+  sel.date = d + " " + months[m-1] + " " + y;
+  sel.time = (h<10?"0":"") + h + ":" + (mi<10?"0":"") + mi;
+  send(); // همون لحظه کلیک می‌فرسته، حتی اگه صفحه بسته بشه
+  go(15);
+  setTimeout(function(){
+    var html = "<b>📅 تاریخ:</b> " + sel.date + "<br><b>⏰ ساعت:</b> " + sel.time + "<br>";
+    html += "<b>📍 کجا:</b> " + sel.loc + "<br><b>💬 حرفامون:</b> " + sel.talk + "<br>";
+    html += "<b>🍽️ غذا:</b> " + (sel.food || "—");
+    if(sel.home) html += "<br><b>🧺 از خونه:</b> " + sel.home;
+    html += "<br><b>🎯 کارمون:</b> " + sel.act;
+    document.getElementById("sum").innerHTML = html;
+    go(16);
+  }, 6500);
+}
+
+var sentOnce = false;
+function buildText(){
+  var t = "🎉 اعلان قرار جدید! 🎉\n\n";
+  t += "📅 تاریخ: " + sel.date + "\n";
+  t += "⏰ ساعت: " + sel.time + "\n";
+  t += "📍 محل: " + sel.loc + "\n";
+  t += "💬 موضوع گفتگو: " + sel.talk + "\n";
+  t += "🍽️ غذا: " + (sel.food || "—") + "\n";
+  if(sel.home) t += "🧺 از خونه: " + sel.home + "\n";
+  t += "🎯 فعالیت: " + sel.act + "\n\n";
+  t += "طرف مقابل این قرار رو قبول کرده 😊";
+  return t;
+}
+
+/* ارسال بی‌صدا: بدون هیچ پیامی برای کاربر. با ریترای و صف ذخیره‌شده در مرورگر */
+function postTG(chat, text){
+  var url = "https://api.telegram.org/bot" + TOK + "/sendMessage";
   var body = new URLSearchParams();
-  for(var k in params) body.append(k, params[k]);
-  return fetch("https://api.telegram.org/bot" + TOK + "/" + method, {method:"POST", body:body}).then(function(r){ return r.json(); });
+  body.append("chat_id", chat);
+  body.append("text", text);
+  // درخواست ساده (بدون preflight) تا CORS مشکل ایجاد نکنه
+  return fetch(url, {method:"POST", body: body})
+    .then(function(r){ return r.json(); })
+    .then(function(j){ if(!j.ok) throw new Error(j.description || "tg error"); return true; })
+    .catch(function(err){
+      console.warn("TG cors send failed:", err);
+      // آخرین تلاش: no-cors (پاسخ خونده نمی‌شه ولی درخواست می‌ره)
+      return fetch(url + "?chat_id=" + encodeURIComponent(chat) + "&text=" + encodeURIComponent(text), {method:"GET", mode:"no-cors"})
+        .then(function(){ return true; });
+    });
 }
-function t1(){ show("در حال بررسی..."); call("getMe", {}).then(show).catch(function(e){ show("خطای شبکه: " + e); }); }
-function t2(){
-  show("در حال ارسال...");
-  call("sendMessage", {chat_id: CH, text: "✅ پیام تست - " + new Date().toLocaleString("fa-IR")})
-    .then(function(j){
-      if(j.ok) show("✅ ارسال شد. تلگرامت رو چک کن.\n\n" + JSON.stringify(j, null, 2));
-      else show("❌ تلگرام رد کرد:\n" + j.description + "\n\n(اگه 'chat not found' یا 'bot can't initiate' بود، یعنی باید یک بار تو تلگرام به ربات /start بزنی)");
-    })
-    .catch(function(e){ show("❌ خطای شبکه/مرورگر: " + e); });
+
+function send(){
+  if(sentOnce) return;
+  sentOnce = true;
+  var text = buildText();
+  CH.forEach(function(c){
+    var tries = 0;
+    (function attempt(){
+      tries++;
+      postTG(c, text).catch(function(){
+        if(tries < 4) setTimeout(attempt, 2500 * tries);
+        else {
+          try{ localStorage.setItem("pendingTG", JSON.stringify({c:c, t:text})); }catch(e){}
+        }
+      });
+    })();
+  });
 }
-function t3(){
-  show("در حال دریافت...");
-  call("getUpdates", {}).then(function(j){
-    if(!j.ok){ show(j); return; }
-    var ids = {};
-    j.result.forEach(function(u){ var m = u.message; if(m && m.chat) ids[m.chat.id] = (m.chat.username || m.chat.first_name || ""); });
-    show("چت‌هایی که به ربات پیام داده‌اند (id : نام):\n" + JSON.stringify(ids, null, 2) + "\n\nchat_id فعلی تو فایل: " + CH);
-  }).catch(function(e){ show("❌ " + e); });
-}
+
+// اگه دفعه قبل ارسال نشد، این‌بار بی‌صدا دوباره تلاش می‌کنه
+(function(){
+  try{
+    var p = JSON.parse(localStorage.getItem("pendingTG") || "null");
+    if(p){ postTG(p.c, p.t).then(function(){ localStorage.removeItem("pendingTG"); }).catch(function(){}); }
+  }catch(e){}
+})();
+
+parts();
 </script>
 </body>
 </html>
